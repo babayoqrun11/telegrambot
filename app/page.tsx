@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import StatsCards from '../components/StatsCards';
 import UsersTable from '../components/UsersTable';
@@ -10,16 +10,16 @@ import RecentMessages from '../components/RecentMessages';
 import AnnouncementsHistory from '../components/AnnouncementsHistory';
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState('genel');
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState<string>('genel');
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     // Kimlik doğrulama kontrolü
     const checkAuth = async () => {
       try {
-        // API çağrısı simülasyonu
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        // API çağrısı simülasyonu (buraya gerçek bir API de koyabilirsin)
+        await new Promise<void>((resolve) => setTimeout(resolve, 1000));
         setIsAuthenticated(true);
       } catch (error) {
         setIsAuthenticated(false);
